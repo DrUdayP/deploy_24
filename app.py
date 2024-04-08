@@ -1,6 +1,8 @@
 import streamlit as st 
 import pickle
 import pandas as pd
+import sklearn
+print(sklearn.__version__)
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 try:
