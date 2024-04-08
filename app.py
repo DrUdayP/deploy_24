@@ -6,9 +6,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 st.set_option('deprecation.showfileUploaderEncoding', False)
 # Load the pickled model
-pickle_in = open("decision_model.pkl","rb")
-model=pickle.load(pickle_in)
-
+pickle_in = pickle.load(open("decision_model.pkl","rb"))
+dataset= pd.read_csv('Social_Network_Ads.csv') 
 def predict_note_authentication(UserID, Gender,Age,EstimatedSalary):
   output= model.predict([[Age,EstimatedSalary]])
   print("Purchased", output)
