@@ -3,9 +3,11 @@ import pickle
 import pandas as pd
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
-
-# Load the pickled model
-pickle_in = pickle.load(open("decision_model.pkl", "rb"))
+try:
+    # Load the pickled model
+    pickle_in = pickle.load(open("decision_model.pkl", "rb"))
+except Exception as e:
+    st.error("Error loading the pickled model: {}".format(e))
 
 def predict_note_authentication(UserID, Gender, Age, EstimatedSalary):
     output = pickle_in.predict([[Age, EstimatedSalary]])
